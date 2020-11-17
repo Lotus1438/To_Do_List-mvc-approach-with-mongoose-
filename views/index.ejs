@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <title>To Do List</title>
+</head>
+
+<style>
+    body {
+        background: linear-gradient(25deg, aqua, pink);
+        background-repeat: no repeat;
+        height: 100vh;
+        font-family: 'Quicksand', sans-serif;
+    }
+    
+    .form {
+        border: 1px solid rgb(248, 176, 109);
+        background-color: rgb(253, 207, 215);
+        margin: 1in;
+        box-shadow: 2px 2px 3px #888888;
+        text-align: center;
+    }
+    
+    .list {
+        background-color: pink;
+        border: 1px solid rgb(192, 248, 109);
+        width: 250px;
+        height: 25px;
+    }
+    
+    .submit {
+        margin: 20px;
+        width: 100px;
+        height: 25px;
+        border: 1px solid rgb(192, 248, 109);
+        background-color: violet;
+    }
+    
+    .submit:hover {
+        border: 1px solid rgb(247, 0, 255);
+        text-align: center;
+        background-color: rgb(192, 248, 109);
+        cursor: pointer;
+    }
+    
+    .container {
+        margin: 3in;
+    }
+</style>
+
+<body>
+    <center>
+        <h1><em>To Do List</em></h1>
+    </center>
+    <div class="container">
+
+        <form action="./" method="POST">
+            <input name="task" class="list" type="text" placeholder="My Task">
+            <input name="schedule" class="list" type="date" placeholder="Schedule">
+            <button type="submit" class="submit"> Add</button>
+        </form>
+
+        <table style="border: 1px solid rgb(192, 248, 109); width:650px;">
+            <% if (data.length > 0 && data != undefined){%>
+                <% for(let i=0;i<data.length;i++){ %>
+
+                    <tr>
+                        <td>
+                            <%=data[i].task%>
+                        </td>
+                        <td>
+                            <%=data[i].schedule%>
+                        </td>
+                        <td>
+                            <a href="./delete/<%=data[i]._id%>"><button><i class="fa fa-trash-alt"></i></button></a>
+                            <a href="./<%=data[i]._id%>"><button><i class="fa fa-edit"></i></button></a>
+                        </td>
+                    </tr>
+                    <%}%>
+                        <%} else {%>
+                            <h2>No content</h2>
+                            <%}%>
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>

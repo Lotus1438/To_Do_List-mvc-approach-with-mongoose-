@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <title>
+        Update
+    </title>
+</head>
+<style>
+    body {
+        background: linear-gradient(25deg, aqua, pink);
+        background-repeat: no repeat;
+        height: 100vh;
+        font-family: 'Quicksand', sans-serif;
+    }
+    
+    .submit {
+        margin: 20px;
+        width: 200px;
+        height: 25px;
+        border: 1px solid rgb(192, 248, 109);
+        background-color: violet;
+    }
+    
+    .submit:hover {
+        border: 1px solid rgb(247, 0, 255);
+        text-align: center;
+        background-color: rgb(192, 248, 109);
+        cursor: pointer;
+    }
+    
+    .container {
+        margin: 3in;
+    }
+    
+    .form {
+        height: 25px;
+        width: 350px;
+        border: 1px solid rgb(109, 193, 248);
+        background-color: rgb(211, 179, 211);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <form action="./" method="post" autocomplete="off" class="row">
+            <h3>Update Task</h3>
+            <% data.forEach(function(task) { %>
+                <input type="hidden" name="id" value="<%= task._id %>">
+                <br>
+                <input name="task" type="text" value=" <%=task.task%>" class="form">
+                <br>
+                <input name="schedule" type="date" class="form" value="<%=task.schedule%>">
+                <% }); %>
+
+                    <button type="submit" id="add" class="submit"> Update</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

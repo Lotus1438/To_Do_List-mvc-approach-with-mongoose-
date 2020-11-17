@@ -1,0 +1,12 @@
+//allows you to send HTTP request and view the response.
+
+POST http://localhost:3000/add
+Content-Type: application/json
+
+{
+    "task": "Simple CRUD",
+    "schedule": "2020-11-17"
+}
+
+###
+GET http://localhost:3000/get 
